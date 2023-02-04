@@ -5,8 +5,12 @@ export default function Index() {
     const [navbarOpen, setNavbarOpen] = useState(false);
     const navList = [
         {
-            name: "About",
-            link: "/about",
+            name: "Home",
+            link: "/",
+        },
+        {
+            name: "Shop",
+            link: "/shop",
         },
         {
             name: "Contact",
@@ -20,7 +24,6 @@ export default function Index() {
     var hidden = "hidden";
 
     if (navbarOpen) {
-        // animate open navbar
         hidden = "transition transform ease-in";
     } else {
         hidden = "hidden transform transition ease-out";
@@ -63,26 +66,14 @@ export default function Index() {
             <div
                 className={`block w-full flex-grow lg:flex lg:w-auto lg:items-center ${hidden}`}
             >
-                <div className="text-sm justify-center lg:flex-grow">
-                    {/* {navList.map((item, index) => (
-                        <a
-                            href={item.link}
-                            className={
-                                item.link === window.location.pathname
-                                    ? "mt-4 mr-4 block font-extrabold text-white hover:text-white lg:mt-0 lg:inline-block"
-                                    : "mt-4 mr-4 block text-white hover:text-white lg:mt-0 lg:inline-block"
-                            }
-                        >
-                            {item.name}
-                        </a>
-                    ))} */}
+                <div className="text-md justify-center font-semibold lg:flex-grow">
                     {navList.map((item, index) => (
                         <a
                             key={index}
                             className={
                                 item.link === window.location.pathname
-                                    ? "nav-link nav-link-ltr mt-4 border-collapse mr-4 block text-white hover:text-white lg:mt-0 lg:inline-block "
-                                    : "nav-link nav-link-ltr mt-4 mr-4 block text-white hover:text-white lg:mt-0 lg:inline-block"
+                                    ? "nav-link nav-link-ltr mt-4 mr-4 block border-collapse text-white hover:text-white lg:mt-0 lg:inline-block "
+                                    : "nav-link nav-link-ltr mt-4 mr-4 block text-white opacity-50 hover:text-white lg:mt-0 lg:inline-block"
                             }
                             href={item.link}
                         >
@@ -93,7 +84,7 @@ export default function Index() {
                 <div>
                     <a
                         href="/login"
-                        className="mt-4 inline-block rounded border border-white px-4 py-2 text-sm leading-none text-white transition duration-500 ease-in-out hover:border-transparent hover:bg-purple-500 focus:outline-none focus:ring-4 focus:ring-purple-300 lg:mt-0"
+                        className="mt-4 inline-block rounded border border-white px-4 py-2 text-sm leading-none text-white transition duration-500 ease-in-out hover:border-transparent hover:bg-purple-600 focus:outline-none focus:ring-4 focus:ring-purple-300 lg:mt-0"
                     >
                         Login
                     </a>

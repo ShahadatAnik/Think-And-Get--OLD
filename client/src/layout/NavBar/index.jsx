@@ -13,12 +13,12 @@ export default function Index() {
             link: "/shop",
         },
         {
-            name: "Contact",
-            link: "/contact",
+            name: "Product",
+            link: "/product",
         },
         {
-            name: "Blog",
-            link: "/blog",
+            name: "Test",
+            link: "/test",
         },
     ];
     var hidden = "hidden";

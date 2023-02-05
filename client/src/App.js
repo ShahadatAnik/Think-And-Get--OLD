@@ -6,8 +6,11 @@ import Loader from "./utils/Loader";
 import NavBar from "./layout/NavBar";
 import Footer from "./layout/Footer";
 
+import ShopCart from "./components/Shop/ShopCart";
+
 const Home = lazy(() => import("./components/Home"));
 const Shop = lazy(() => import("./components/Shop"));
+const Product = lazy(() => import("./components/Product"));
 const NotFound = lazy(() => import("./layout/NotFound"));
 
 function App() {
@@ -40,12 +43,20 @@ function App() {
                             </Suspense>
                         }
                     />
+                    <Route
+                        path="/product"
+                        element={
+                            <Suspense fallback={<Loader />}>
+                                <Product />
+                            </Suspense>
+                        }
+                    />
 
                     <Route
                         path="/test"
                         element={
                             <Suspense fallback={<Loader />}>
-                                <NavBar />
+                                <ShopCart />
                             </Suspense>
                         }
                     />

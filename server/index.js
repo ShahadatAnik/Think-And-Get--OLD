@@ -9,21 +9,43 @@ const db = mysql.createPool({
     host: "localhost",
     user: "root",
     password: "",
-    database: "extreme_racer",
+    database: "think_and_get",
 });
 
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extender: true }));
 
-// app.get("/api/get_car_1/", (req, res) => {
-//     const sqlSelect =
-//         "SELECT x_axis, y_axis from cars_position where car_name='car_1'";
-//     db.query(sqlSelect, (err, result) => {
-//         //console.log(result)
-//         res.send(result);
-//     });
-// });
+app.get("/getCustomer", (req, res) => {
+    const sqlSelect =
+        "SELECT email,password from customers";
+            db.query(sqlSelect, (err, result) => {
+        console.log(result)
+        res.send(result);
+    });
+});
+
+app.post("/createCustomer", (req, res)=> {
+    const variable = req.body.email;
+
+    const sqlQuary = "quary";
+    db.query(sqlQuary,[variable], (err, result)=>{
+        // if(!err){
+            res.send(result);
+        //}
+    });
+});
+
+app.post("/createshopper", (req, res)=> {
+    const variable = req.body.email;
+
+    const sqlQuary = "quary";
+    db.query(sqlQuary,[variable], (err, result)=>{
+        // if(!err){
+            res.send(result);
+        //}
+    });
+});
 
 app.listen(3001, ()=>{
     console.log('Running');

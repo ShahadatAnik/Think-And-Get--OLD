@@ -28,19 +28,19 @@ app.get("/getCustomer", (req, res) => {
 app.post("/createCustomer", (req, res)=> {
     const variable = req.body.email;
 
-    const sqlQuary = "quary";
-    db.query(sqlQuary,[variable], (err, result)=>{
+    const sqlQuery = "query";
+    db.query(sqlQuery,[variable], (err, result)=>{
         // if(!err){
             res.send(result);
         //}
     });
 });
 
-app.post("/createshopper", (req, res)=> {
+app.post("/createShopper", (req, res)=> {
     const variable = req.body.email;
 
-    const sqlQuary = "quary";
-    db.query(sqlQuary,[variable], (err, result)=>{
+    const sqlQuery = "query";
+    db.query(sqlQuery,[variable], (err, result)=>{
         // if(!err){
             res.send(result);
         //}
@@ -48,5 +48,5 @@ app.post("/createshopper", (req, res)=> {
 });
 
 app.listen(3001, ()=>{
-    console.log('Running');
+    console.log('Running on port 3001');
 })

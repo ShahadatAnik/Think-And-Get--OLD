@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "../../assets/img/logo.svg";
 
 export default function Index() {
     return (
@@ -8,16 +9,14 @@ export default function Index() {
                     <a
                         rel="noopener noreferrer"
                         href="/"
-                        className="flex justify-center space-x-3 lg:justify-start"
+                        className="flex justify-center space-x-2 lg:justify-start"
                     >
-                        <div className="flex h-12 w-12 items-center justify-center">
-                            <svg
-                                className="mr-1 h-8 w-8 fill-current"
-                                viewBox="0 0 54 54"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
-                            </svg>
+                        <div>
+                            <img
+                                src={Logo}
+                                alt="Logo"
+                                className="mt-3 h-14 w-14"
+                            />
                         </div>
                         <span className="self-center text-2xl font-semibold">
                             Think & Get

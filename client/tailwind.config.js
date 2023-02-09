@@ -36,4 +36,6 @@ module.exports = {
         },
     },
     plugins: [require("@tailwindcss/forms")],
+    include: ["./src/**/*.ts", "./src/**/*.jsx", "./src/**/*.js"],
+    exclude: ["node_modules/**", "build/**", "coverage/**"]
 };

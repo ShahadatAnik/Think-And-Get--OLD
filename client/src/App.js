@@ -6,7 +6,7 @@ import Loader from "./utils/Loader";
 import NavBar from "./layout/NavBar";
 import Footer from "./layout/Footer";
 
-import ShopCart from "./components/Shop/ShopCart";
+import ShopCard from "./components/Shop/ShopCard";
 
 const Home = lazy(() => import("./components/Home"));
 const Shop = lazy(() => import("./components/Shop"));
@@ -58,7 +58,7 @@ function App() {
                         path="/test"
                         element={
                             <Suspense fallback={<Loader />}>
-                                <ShopCart />
+                                <ShopCard />
                             </Suspense>
                         }
                     />

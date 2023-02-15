@@ -1,5 +1,5 @@
 
-const Signup = () => {
+export default function Signup() {
     return (
         <div>
             <div class="rounded-lg shadow-lg bg-white w-full max-w-lg mx-auto p-8 md:p-12 my-10">
@@ -67,5 +67,3 @@ const Signup = () => {
         </div>
     );
 }
-
-export default Signup;

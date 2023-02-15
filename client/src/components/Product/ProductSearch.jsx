@@ -407,8 +407,6 @@ export default function ProductSearch({ products }) {
                                 </Disclosure>
                             ))}
                         </form>
-
-                        {/* Product grid */}
                         <div className="lg:col-span-5">
                             <ProductInfinityScroll products={products} />
                         </div>

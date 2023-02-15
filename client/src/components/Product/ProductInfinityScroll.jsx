@@ -21,7 +21,7 @@ export default function ProductInfinityScroll({ products }) {
                             <img
                                 src={product.image}
                                 alt="Product image"
-                                className=" w-full rounded-t-xl object-cover object-center"
+                                className=" w-full rounded-t-xl object-cover object-center hover:rounded-t-xl"
                             />
                             <div className="absolute bottom-2 left-3 right-0 flex flex-row items-center space-x-1">
                                 <svg

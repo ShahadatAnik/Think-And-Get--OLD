@@ -12,6 +12,8 @@ const Home = lazy(() => import("./components/Home"));
 const Shop = lazy(() => import("./components/Shop"));
 const Product = lazy(() => import("./components/Product"));
 const NotFound = lazy(() => import("./layout/NotFound"));
+const Login = lazy(() => import("./components/Login"));
+const Signup = lazy(() => import("./components/Login/Signup"));
 
 function App() {
     return (
@@ -57,6 +59,22 @@ function App() {
                         element={
                             <Suspense fallback={<Loader />}>
                                 <ShopCard />
+                            </Suspense>
+                        }
+                    />
+                    <Route
+                        path="/login"
+                        element={
+                            <Suspense fallback={<Loader />}>
+                                <Login />
+                            </Suspense>
+                        }
+                    />
+                    <Route
+                        path="/signup"
+                        element={
+                            <Suspense fallback={<Loader />}>
+                                <Signup />
                             </Suspense>
                         }
                     />

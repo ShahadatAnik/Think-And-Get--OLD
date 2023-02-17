@@ -1,16 +1,40 @@
 
-export default function Signup() {
+export default function Signup_Shopper() {
     return (
         <div>
             <div class="rounded-lg shadow-lg bg-white w-full max-w-lg mx-auto p-8 md:p-12 my-10">
-                <h2 class="text-2xl font-bold text-center mb-8">Shopper Sign Up</h2>
+                <h2 class="text-2xl font-bold text-center mb-8">Sign Up</h2>
                 <form>
                     <div class="mb-6">
                         <input
                             type="text"
                             class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="fullName"
-                            placeholder="Full Name"
+                            id="shopName"
+                            placeholder="Shop Name"
+                        />
+                    </div>
+                    <div class="mb-6">
+                        <input
+                            type="text"
+                            class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="shopType"
+                            placeholder="Shop Type"
+                        />
+                    </div>
+                    <div class="mb-6">
+                        <input
+                            type="text"
+                            class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="shopAddress"
+                            placeholder="Shop Address"
+                        />
+                    </div>
+                    <div class="mb-6">
+                        <input
+                            type="email"
+                            class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="emailAddress"
+                            placeholder="Email Address"
                         />
                     </div>
                     <div class="mb-6">
@@ -19,14 +43,6 @@ export default function Signup() {
                             class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                             id="phoneNumber"
                             placeholder="Phone Number"
-                        />
-                    </div>
-                    <div class="mb-6">
-                        <input
-                            type="email"
-                            class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="emailAddress"
-                            placeholder="Email address"
                         />
                     </div>
                     <div class="mb-6">
@@ -62,12 +78,12 @@ export default function Signup() {
                             </a>
                         </p>
                         <p class="text-sm font-semibold mt-2 pt-1 mb-0">
-                            Are you a Shop owner?
+                            Are you a Buyer?
                             <a
-                                href="/signup_shop"
+                                href="/signup"
                                 class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
                             >
-                                Shopper Signup
+                                Signup
                             </a>
                         </p>
                     </div>

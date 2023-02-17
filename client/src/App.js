@@ -14,6 +14,7 @@ const Product = lazy(() => import("./components/Product"));
 const NotFound = lazy(() => import("./layout/NotFound"));
 const Login = lazy(() => import("./components/Login"));
 const Signup = lazy(() => import("./components/Login/Signup"));
+const Signup_Shopper = lazy(() => import("./components/Login/Signup_Shopper"));
 
 function App() {
     return (
@@ -75,6 +76,14 @@ function App() {
                         element={
                             <Suspense fallback={<Loader />}>
                                 <Signup />
+                            </Suspense>
+                        }
+                    />
+                    <Route
+                        path="/signup_shop"
+                        element={
+                            <Suspense fallback={<Loader />}>
+                                <Signup_Shopper />
                             </Suspense>
                         }
                     />

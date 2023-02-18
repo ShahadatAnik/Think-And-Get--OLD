@@ -47,6 +47,49 @@ app.post("/createShopper", (req, res)=> {
     });
 });
 
+app.get("/user/verify_login/", (req, res) => {
+    //console.log("verify login")
+    const email = req.query.email;
+    const password = req.query.password;
+    console.log("data  "+email+" "+password)
+    //console.log(email, password)
+    const get_user = "select id,password from customers where email = ?";
+    db.query(get_user, [email], (err, result) => {
+        //console.log(result)
+        if (result.length === 0) {
+            console.log("No user found");
+            res.send("No user found");
+        } else if (password === result[0].password) {
+            console.log("login successful "+result[0].id.toString());
+            res.send(result[0].id.toString());
+        } else {
+            console.log("wrong password");
+            res.send("wrong password");
+        }
+        //res.send(result)
+    });
+});
+
+app.post("/user/create_user", (req, res) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    const password = req.body.password;
+    const phone = req.body.phone;
+    //console.log(name, email, password, phone, profession)
+    const create_user =
+        "INSERT INTO customers (name, email, phone, password) VALUES (?, ?, ?, ?);";
+    db.query(
+        create_user,
+        [name, email, phone, password],
+        (err, result) => {
+            res.send(result);
+            if (err) {
+                console.log(err);
+            }
+        }
+    );
+});
+
 app.listen(3001, ()=>{
     console.log('Running on port 3001');
 })

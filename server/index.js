@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
+const nodemailer = require("nodemailer");
 
 // MySQL
 const mysql = require("mysql");
@@ -68,6 +69,48 @@ app.get("/user/verify_login/", (req, res) => {
         }
         //res.send(result)
     });
+});
+
+app.post("/user/verifyemail/", (req, res) => {
+    const code = req.body.code;
+    const email =  req.body.email;
+    // console.log(code);
+    // console.log(email);
+async function main() {
+  // Generate test SMTP service account from ethereal.email
+  // Only needed if you don't have a real mail account for testing
+  //let testAccount = await nodemailer.createTestAccount();
+
+  // create reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    host: "smtp-mail.outlook.com",
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: "thinkandget@outlook.com", // generated ethereal user
+      pass: "tag84031", // generated ethereal password
+    },
+  });
+
+  // send mail with defined transport object
+  let info = await transporter.sendMail({
+    from: '"Think and Get" <thinkandget@outlook.com', // sender address
+    to: email, // list of receivers
+    subject: "Verification Code ✔", // Subject line
+    text: "Welcome to Think and get. Your verification code is: "+code+ " ;Enjoy", // plain text body
+    html: "<b>Welcome to Think and get. Your verification code is: "+code+ " ;Enjoy</b>", // html body
+  });
+
+  console.log("Message sent: %s", info.messageId);
+  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+  // Preview only available when sending through an Ethereal account
+  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+}
+
+main().catch(console.error);
+    
 });
 
 app.post("/user/create_user", (req, res) => {

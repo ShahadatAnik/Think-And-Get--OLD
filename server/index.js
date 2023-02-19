@@ -133,18 +133,19 @@ app.get("/user/forgot_password/", (req, res) => {
               
                 // create reusable transporter object using the default SMTP transport
                 let transporter = nodemailer.createTransport({
-                  host: "smtp-mail.outlook.com",
-                  port: 587,
-                  secure: false, // true for 465, false for other ports
+                    service: 'gmail',
+                    host: 'smtp.gmail.com',
+                    port: 587,
+                    secure: false, // true for 465, false for other ports
                   auth: {
-                    user: "thinkandget@outlook.com", // generated ethereal user
-                    pass: "tag84031", // generated ethereal password
+                    user: "rashikbuksh71@gmail.com", // generated ethereal user
+                    pass: "ljeceenkkayemrqy", // generated ethereal password
                   },
                 });
               
                 // send mail with defined transport object
                 let info = await transporter.sendMail({
-                  from: '"Think and Get" <thinkandget@outlook.com', // sender address
+                  from: '"Think and Get" <rashikbuksh71@gmail.com', // sender address
                   to: email, // list of receivers
                   subject: "Verification Code ✔", // Subject line
                   text: "Welcome to Think and get. Your verification code is: "+code+ " ;Enjoy", // plain text body

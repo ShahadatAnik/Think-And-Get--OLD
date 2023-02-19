@@ -180,7 +180,7 @@ export default function Signup(){
                         />
                     </div>
                     <div class="mb-6">
-                    <input id="outlined-basic" label="Product Name" type="text" name="productName" onChange={(e)=>{
+                    <input id="outlined-basic" label="Verification code" type="text" name="productName" onChange={(e)=>{
         setVerify_code(e.target.value)
       }}/>   <button type="button" onClick = {()=>{verifyEmail()}}>Send verification code</button><br></br>
                         </div>

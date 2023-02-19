@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 08, 2023 at 10:14 AM
+-- Generation Time: Feb 19, 2023 at 10:12 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -57,9 +57,9 @@ CREATE TABLE `customers` (
   `id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `phone` varchar(15) NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `role` varchar(10) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `role` varchar(10) NOT NULL DEFAULT 'cus',
   `enabled` int(11) DEFAULT 1,
   `created_time` date NOT NULL DEFAULT current_timestamp(),
   `updated_time` date DEFAULT NULL
@@ -70,7 +70,11 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `email`, `phone`, `name`, `password`, `role`, `enabled`, `created_time`, `updated_time`) VALUES
-(1, 'safa@gmail.com', '01794798101', 'safa', 'dqdaudiuadu', 'cus', 1, '2023-02-08', NULL);
+(1, 'safa@gmail.com', '01794798101', 'safa', 'dqdaudiuadu', 'cus', 1, '2023-02-08', NULL),
+(3, 'safashah@gmail.com', '01992339969', 'Safa Shah', '83abc11cb0ae9847e86c7bffba917ad795dca9201431b2214a14f1445686e70d', 'cus', 1, '2023-02-15', NULL),
+(4, 'anik69@gmail.com', '69696969696', 'anik 69', 'de5b0a2cc2468678a84091bd415b7533a76c862dc956d94786f66d5f0c51d497', 'cus', 1, '2023-02-15', NULL),
+(5, 'fahim@gmail.com', '01794798101', 'Hasib', 'ca33a0566825a98880cac4c11ecbf3818dec36d4b7c82aab39f9f32ba008cd9d', 'cus', 1, '2023-02-18', NULL),
+(6, 'hasibarrafiulfahim@gmail.com', '01794798101', 'Hasib Ar Rafiul Fahim', '18bf931b32b6d4b8a78c62e4144bc5a1d07f6fd3e34245fc98a17e76531284a2', 'cus', 1, '2023-02-18', NULL);
 
 -- --------------------------------------------------------
 
@@ -176,16 +180,23 @@ CREATE TABLE `shoppers` (
   `id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `phone` varchar(15) NOT NULL,
-  `name` varchar(20) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `address` varchar(100) NOT NULL,
   `shop_location` varchar(100) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `role` varchar(10) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `role` varchar(10) NOT NULL DEFAULT 'shop',
   `enabled` int(11) NOT NULL DEFAULT 1,
   `created_time` date NOT NULL DEFAULT current_timestamp(),
-  `updated_time` date NOT NULL,
-  `priority` int(11) NOT NULL
+  `updated_time` date NOT NULL DEFAULT current_timestamp(),
+  `priority` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `shoppers`
+--
+
+INSERT INTO `shoppers` (`id`, `email`, `phone`, `name`, `address`, `shop_location`, `password`, `role`, `enabled`, `created_time`, `updated_time`, `priority`) VALUES
+(1, 'hasibarrafiulfahim@gmail.com', '01794798101', 'daDAD', 'Banasree, Block E, Road 8, House 21', 'DADAD', '18bf931b32b6d4b8a78c62e4144bc5a1d07f6fd3e34245fc98a17e76531284a2', 'shop', 1, '2023-02-19', '2023-02-19', 1);
 
 -- --------------------------------------------------------
 
@@ -222,7 +233,8 @@ ALTER TABLE `contact_us`
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `customers_statistics`
@@ -272,7 +284,8 @@ ALTER TABLE `saved_product`
 -- Indexes for table `shoppers`
 --
 ALTER TABLE `shoppers`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `shop_statistics`
@@ -301,7 +314,7 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `customers_statistics`
@@ -343,7 +356,7 @@ ALTER TABLE `saved_product`
 -- AUTO_INCREMENT for table `shoppers`
 --
 ALTER TABLE `shoppers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `shop_statistics`

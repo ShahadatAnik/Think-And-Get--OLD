@@ -185,6 +185,28 @@ app.post("/user/create_user", (req, res) => {
     );
 });
 
+app.post("/user/create_shop", (req, res) => {
+    const shop_name = req.body.shop_name;
+    const shop_location = req.body.shop_location;
+    const shop_address = req.body.shop_address;
+    const email = req.body.email;
+    const password = req.body.password;
+    const phone = req.body.phone;
+    console.log(shop_name, email, password, phone)
+    const create_user =
+        "INSERT INTO shoppers (name, email, phone, password, shop_location, address) VALUES (?, ?, ?, ?, ?, ?);";
+    db.query(
+        create_user,
+        [shop_name, email, phone, password, shop_location, shop_address],
+        (err, result) => {
+            res.send(result);
+            if (err) {
+                console.log(err);
+            }
+        }
+    );
+});
+
 app.get("/user/reset_password", (req, res) => {
     const email = req.query.email;
     const password = req.query.password;

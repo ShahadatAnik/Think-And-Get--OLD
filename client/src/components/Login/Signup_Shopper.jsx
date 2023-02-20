@@ -16,6 +16,7 @@ export default function Signup_Shopper() {
     shop_name: '',
     shop_location: '',
     shop_address: '',
+    shop_type: '',
     email: '',
     password: '',
     password_re: '',
@@ -115,6 +116,7 @@ export default function Signup_Shopper() {
           shop_name: user.shop_name,
           shop_location: user.shop_location,
           shop_address: user.shop_address,
+          shop_type: user.shop_type,
           email: user.email,
           password: sha256(user.password),
           phone: user.phone,
@@ -146,7 +148,7 @@ export default function Signup_Shopper() {
                         onChange={handleInput}
                             type="text"
                             class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                            id="shopType"
+                            id="shopLocation"
                             placeholder="Shop Location"
                         />
                     </div>
@@ -158,6 +160,16 @@ export default function Signup_Shopper() {
                             class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                             id="shopAddress"
                             placeholder="Shop Address"
+                        />
+                    </div>
+                    <div class="mb-6">
+                        <input
+                        name="shop_type"
+                        onChange={handleInput}
+                            type="text"
+                            class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="shopType"
+                            placeholder="Shop Type"
                         />
                     </div>
                     <div class="mb-6">
@@ -218,7 +230,7 @@ export default function Signup_Shopper() {
                         <p class="text-sm font-semibold mt-2 pt-1 mb-0">
                             Already have an account?
                             <a
-                                href="/login"
+                                href="/login_shop"
                                 class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
                             >
                                 Login

@@ -17,6 +17,9 @@ const Signup = lazy(() => import("./components/Login/Signup"));
 const ForgotPassword = lazy(() => import("./components/Login/Forgot_Password"));
 const ResetPassword = lazy(() => import("./components/Login/Reset_password"));
 const Signup_Shopper = lazy(() => import("./components/Login/Signup_Shopper"));
+const Login_Shopper = lazy(() => import("./components/Login/Login_Shopper"));
+const ForgotPasswordShop = lazy(() => import("./components/Login/Forgot_Password_shop"));
+const ResetPasswordShop = lazy(() => import("./components/Login/Reset_password_shop"));
 
 function App() {
     return (
@@ -105,7 +108,32 @@ function App() {
                             </Suspense>
                         }
                     />
+                    <Route
+                        path="/login_shop"
+                        element={
+                            <Suspense fallback={<Loader />}>
+                                <Login_Shopper />
+                            </Suspense>
+                        }
+                    />
+                    <Route
+                        path="/forgot_password_shop"
+                        element={
+                            <Suspense fallback={<Loader />}>
+                                <ForgotPasswordShop />
+                            </Suspense>
+                        }
+                    />
+                    <Route
+                        path="/reset_password_shop"
+                        element={
+                            <Suspense fallback={<Loader />}>
+                                <ResetPasswordShop />
+                            </Suspense>
+                        }
+                    />
                 </Routes>
+                
             </BrowserRouter>
             <Footer />
         </div>

@@ -43,7 +43,7 @@ export default function Login(){
       e.preventDefault();
     }else{
       //console.log(user.email);
-      Axios.get("http://localhost:3001/user/verify_login/", {
+      Axios.get("http://localhost:3001/user/verify_login_shop/", {
         params: {
             email: user.email,
             password: sha256(user.password),
@@ -57,7 +57,7 @@ export default function Login(){
     }else{
       console.log("Logged in");
       localStorage.setItem('loggedin', 'true');
-      localStorage.setItem('user_type', 'user');
+      localStorage.setItem('user_type', 'shop');
       localStorage.setItem('user', response.data);
       console.log("Data: "+response.data);
       window.location.href = "/..";
@@ -68,7 +68,7 @@ export default function Login(){
     return (
       <div>
       <div class="rounded-lg shadow-lg bg-white w-full max-w-lg mx-auto p-8 md:p-12 my-10">
-          <h2 class="text-2xl font-bold text-center mb-8">Login</h2>
+          <h2 class="text-2xl font-bold text-center mb-8">Login as a Shop</h2>
           <form onSubmit={onSubmit}>
               
               <div class="mb-6">
@@ -104,7 +104,7 @@ export default function Login(){
                   <p class="text-sm font-semibold mt-2 pt-1 mb-0">
                       Don't have an account? 
                       <a
-                          href="/signup"
+                          href="/signup_shop"
                           class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
                       >
                           Signup

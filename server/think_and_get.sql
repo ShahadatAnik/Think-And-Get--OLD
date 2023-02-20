@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 19, 2023 at 10:12 AM
+-- Generation Time: Feb 20, 2023 at 07:09 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -183,6 +183,7 @@ CREATE TABLE `shoppers` (
   `name` varchar(50) NOT NULL,
   `address` varchar(100) NOT NULL,
   `shop_location` varchar(100) NOT NULL,
+  `shop_type` varchar(20) NOT NULL,
   `password` varchar(100) NOT NULL,
   `role` varchar(10) NOT NULL DEFAULT 'shop',
   `enabled` int(11) NOT NULL DEFAULT 1,
@@ -195,8 +196,8 @@ CREATE TABLE `shoppers` (
 -- Dumping data for table `shoppers`
 --
 
-INSERT INTO `shoppers` (`id`, `email`, `phone`, `name`, `address`, `shop_location`, `password`, `role`, `enabled`, `created_time`, `updated_time`, `priority`) VALUES
-(1, 'hasibarrafiulfahim@gmail.com', '01794798101', 'daDAD', 'Banasree, Block E, Road 8, House 21', 'DADAD', '18bf931b32b6d4b8a78c62e4144bc5a1d07f6fd3e34245fc98a17e76531284a2', 'shop', 1, '2023-02-19', '2023-02-19', 1);
+INSERT INTO `shoppers` (`id`, `email`, `phone`, `name`, `address`, `shop_location`, `shop_type`, `password`, `role`, `enabled`, `created_time`, `updated_time`, `priority`) VALUES
+(2, 'hasibarrafiulfahim@gmail.com', '01794798101', 'Mohammadiya store', 'Banasree, Block E, Road 8, House 21', '192degreeeast', 'Confectionary', '51b27d8c33b1917654eec2c34a0e6d8ce66565189dc02fce9665644fc74694e2', 'shop', 1, '2023-02-20', '2023-02-20', 1);
 
 -- --------------------------------------------------------
 
@@ -356,7 +357,7 @@ ALTER TABLE `saved_product`
 -- AUTO_INCREMENT for table `shoppers`
 --
 ALTER TABLE `shoppers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `shop_statistics`

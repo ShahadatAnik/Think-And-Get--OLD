@@ -3,9 +3,10 @@
 import Axios from 'axios';
 import { sha256, sha224 } from 'js-sha256';
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 export default function Login(){
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [isLoading, setLoading] = useState(false);
   const [isInvalidEmail, setIsInvalidEmail] = React.useState(false);
   const [isInvalidPassword, setIsInvalidPassword] = React.useState(false);
   const [user, setUser] = React.useState({
@@ -14,6 +15,14 @@ export default function Login(){
   });
 
   const [show, setShow] = React.useState('password');
+
+  const loading = e => {
+    setLoading(true);
+  }
+  if (isLoading) {
+    return <div className="App">Loading...</div>;
+  }
+  
 
   const handleInput = e => {
     const { name, value } = e.target;
@@ -39,6 +48,7 @@ export default function Login(){
   };
 
   const onSubmit = e => {
+    loading();
     if (isInvalidEmail || isInvalidPassword) {
       e.preventDefault();
     }else{
@@ -49,6 +59,7 @@ export default function Login(){
             password: sha256(user.password),
         }
     }).then((response) => {
+      setLoading(false);
       //console.log("Data"+response.data)
       if(response.data === "No user found"){
       alert("No user found");
